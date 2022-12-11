@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "disable_existing_logger": false,
+    "formatters": {
+        "default": {
+            "format": "%(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S"
+        },
+        "error": {
+            "format": "[%(asctime)s][%(name)s][%(levelname)8s] %(message)s (%(filename)s:%(lineno)d)",
+            "datefmt": "%Y-%m-%d %H:%M:%S"
+        }
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "formatter": "default"
+        },
+        "file": {
+            "class": "logging.FileHandler",
+            "level": "DEBUG",
+            "formatter": "error",
+            "filename": "error-%Y%m%d.log"
+        }
+    },
+    "loggers": {
+        "Release": {
+            "level": "DEBUG",
+            "handlers": ["console", "file"],
+            "propagate": true
+        }
+    }
+}
